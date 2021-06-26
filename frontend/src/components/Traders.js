@@ -1,15 +1,20 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const Traders = props => {
+export default class Traders extends Component {
 
-  return (
-  <div className="Traders">
-    <h1> Traders </h1>
-    {props.traders.map(function(d, idx) {
-        return (<li key={idx}>{d.name}</li>)}
-    )}
-  </div>
-  );
+  constructor(props) {
+    super(props);
+    this.state = {...this.props};
+  }
+
+  render() {
+    return (
+    <div className="Traders">
+      <h1> Traders </h1>
+      {this.state.traders.map(function(d, idx) {
+          return (<li key={idx}>{d.name}</li>)}
+      )}
+    </div>
+    );
+  }
 }
-
-export default Traders;

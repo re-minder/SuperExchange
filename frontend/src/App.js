@@ -1,26 +1,31 @@
-import React, {useState} from 'react';
+import React, {Component} from 'react';
 import UserForm from './components/UserForm';
 import Traders from './components/Traders';
 import LProviders from './components/LProviders';
 
-function App() {
-  const [traders, setTraders] = useState([])
-  const [lProviders, setLProviders] = useState([])
-
-  function handleTradersCallback(newTraders) {
-    setTraders(newTraders);
-    console.log("CALLBACK in App.js", traders);
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        traders:[],
+        lProviders:[]
+    }
+    this.handleCallback = this.handleCallback.bind(this);
   }
 
-  return (
-    <div className="App">
-      <h1>{traders}</h1>
-      <UserForm traders={traders} onTradersChange={handleTradersCallback} lProviders={lProviders} onLProvidersChange={setLProviders}/>
-      <Traders traders={traders} onTradersChange={setTraders} />
-      <br/>
-      <LProviders lProviders={lProviders} onLProvidersChange={setLProviders} />
-    </div>
-  );
-} 
+  handleCallback(newUsers) {
+    this.setState({users: newUsers});
+    console.log("CALLBACK in App.js", this.state.users);
+  }
 
-export default App;
+  render() {
+    return (
+      <div className="App">
+        <UserForm users={this.state} onChange={this.handleCallback}/>
+        <Traders traders={this.state.traders} />
+        <br/>
+        <LProviders lProviders={this.state.lProviders}/>
+      </div>
+    );
+  }
+} 

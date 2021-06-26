@@ -1,15 +1,20 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const LProviders = props => {
+export default class LProviders extends Component {
 
-  return (
-  <div className="LProviders">
-    <h1> Liquidity Providers </h1>
-    {props.lProviders.map(function(d, idx) {
-        return (<li key={idx}>{d.name}</li>)}
-    )}
-  </div>
-  );
+  constructor(props) {
+    super(props);
+    this.state = {...this.props};
+  }
+
+  render() {
+    return (
+    <div className="LProviders">
+      <h1> Liquidity Providers </h1>
+      {this.state.lProviders.map(function(d, idx) {
+          return (<li key={idx}>{d.name}</li>)}
+      )}
+    </div>
+    );
+  }
 }
-
-export default LProviders;
