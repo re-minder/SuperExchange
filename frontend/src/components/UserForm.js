@@ -28,23 +28,21 @@ const UserForm =  props => {
     };
 
     const handleSubmit = event => {
-        event.preventDefault();
-        console.log(event);
-        console.log(formState);
+        console.log("HANDLING EVENT : ", event);
+        console.log("NEW formState : ", formState);
         addUser(formState);
+        event.preventDefault();
     };
 
     const addUser = (formState) => {
         if (formState.userType==="trader") {
             props.traders.push(formState);
             props.onTradersChange(props.traders);
-            console.log("Formstate: ", formState);
-            console.log("Traders: ", props.traders);
+            console.log("TRADERS : ", props.traders);
         } else if (formState.userType==="lProvider") {
-            props.traders.push(formState);
-            props.onTradersChange(props.traders);
-            console.log("Formstate: ", formState);
-            console.log("Traders: ", props.traders);
+            props.lProviders.push(formState);
+            props.onLProvidersChange(props.lProviders);
+            console.log("LIQUIDITY PROVIDERS: ", props.lProviders);
         }
     }
 
@@ -80,7 +78,7 @@ const UserForm =  props => {
             </label>
 
             <br/>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Start Streaming" />
         </form>
     </div>
     );
