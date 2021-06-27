@@ -1,16 +1,29 @@
-.header .logo {
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f2edd7;
+}
+
+.header {
+  background-color: #eae2b6;
+  padding: 2px;
+}
+
+.logo {
   float: left;
   width: 2%;
   height: 2%;
-  margin: 15px;
+  margin-top: 15px;
+  margin-left: 1%;
 }
 
-.header .appName {
+.appName {
   font-family: courier new;
   color: #00a11c;
   position: relative;
-  top: 15px;
-  left: 1%;
+  margin-top: 15px;
+  margin-left: 4%;
 }
 
 .rowComp {
@@ -23,7 +36,8 @@
   font-family: courier new;
   display: inline-block;
   vertical-align: top;
-  margin-left: 5%;
+  padding-left: 2%;
+  padding-right: 1%;
   width: 45%;
 }
 
@@ -31,8 +45,48 @@
   font-family: courier new;
   display: inline-block;
   vertical-align: top;
-  margin-right: 5%;
-  width: 45%;
+  padding-left: 1%;
+}
+
+.inputDropDown {
+  font-family: courier new;
+  display: block;
+  margin-top: 3%;
+  margin-bottom: 2%;
+  width: 32%;
+  height: 28px;
+  border: none;
+  font-size: 20px;
+  border-bottom: 2.5px solid #00a11c;
+  background-color: #eae2b6;
+}
+
+.inputText {
+  font-family: courier new;
+  display: block;
+  margin-top: 3%;
+  margin-bottom: 2%;
+  width: 55%;
+  height: 28px;
+  border: none;
+  font-size: 20px;
+  border-bottom: 2.5px solid #00a11c;
+  background-color: #eae2b6;
+}
+
+.submitButton {
+  font-family: courier new;
+  margin-top: 2%;
+  margin-left: 15%;
+  width: 25%;
+  height: 30px;
+  font-size: 20px;
+  background-color: #00a11c;
+  opacity: 0.75;
+}
+
+.submitButton:hover {
+  opacity: 1;
 }
 
 .userInput {

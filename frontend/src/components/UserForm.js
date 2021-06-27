@@ -19,9 +19,9 @@ export default class UserForm extends Component {
             ...this.props,
             newUser: {
                 userType: "trader",
-                name: "name",
-                walletAddress: "0x000000000000000000000000000000000000000",
-                streamRatePerHour: 0,
+                name: "Your Name",
+                walletAddress: "Your Wallet Addres",
+                streamRatePerHour: "The rate at which you want to stream",
             }
         };
     }
@@ -60,35 +60,13 @@ export default class UserForm extends Component {
         <div className="leftComponent userInput">
             <h1> Stream Liquidity </h1>
             <form onSubmit={this.handleSubmit}>
-                <label>
-                UserType
-                <div>
-                    <select name="userType" value={userTypes.userType} onChange={this.handleInputChange}>
-                        {userTypes.map((option) => (<option key={option.value} value={option.value}>{option.label}</option>))}
-                    </select>
-                </div>
-                </label>
-
-                <br/>
-                <label>
-                Name
-                <input type="text" name="name" value={userTypes.name} onChange={this.handleInputChange} />
-                </label>
-
-                <br/>
-                <label>
-                Wallet Address
-                <input type="text" name="walletAddress" value={userTypes.walletAddress} onChange={this.handleInputChange} />
-                </label>
-
-                <br/>
-                <label>
-                Streaming Rate Per Hour
-                <input type="text" name="streamRatePerHour" value={userTypes.streamRatePerHour} onChange={this.handleInputChange} />
-                </label>
-
-                <br/>
-                <input type="submit" value="Start Streaming" />
+                <select className="inputDropDown" name="userType" value={userTypes.userType} onChange={this.handleInputChange}>
+                    {userTypes.map((option) => (<option key={option.value} value={option.value}>{option.label}</option>))}
+                </select>
+                <input className="inputText" type="text" name="name" placeholder={this.state.newUser.name} onChange={this.handleInputChange} />
+                <input className="inputText" type="text" name="walletAddress" placeholder={this.state.newUser.walletAddress} onChange={this.handleInputChange} />
+                <input className="inputText" type="text" name="streamRatePerHour" placeholder={this.state.newUser.streamRatePerHour} onChange={this.handleInputChange} />
+                <input className="submitButton" type="submit" value="Start Streaming" />
             </form>
         </div>
         );
