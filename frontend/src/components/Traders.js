@@ -9,7 +9,7 @@ export default class Traders extends Component {
 
   render() {
     return (
-    <div className="Traders">
+    <div className="leftComponent traders">
       <h1> Traders </h1>
       {this.state.traders.map(function(d, idx) {
           return (<li key={idx}>{d.name}</li>)}

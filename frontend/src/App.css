@@ -1,0 +1,48 @@
+.header .logo {
+  float: left;
+  width: 2%;
+  height: 2%;
+  margin: 15px;
+}
+
+.header .appName {
+  font-family: courier new;
+  color: #00a11c;
+  position: relative;
+  top: 15px;
+  left: 1%;
+}
+
+.rowComp {
+  width: 100%;
+  display: table;
+  /* flex-wrap: wrap; */
+}
+
+.leftComponent {
+  font-family: courier new;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 5%;
+  width: 45%;
+}
+
+.rightComponent {
+  font-family: courier new;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 5%;
+  width: 45%;
+}
+
+.userInput {
+}
+
+.liquidityPool {
+}
+
+.traders {
+}
+
+.lProviders {
+}

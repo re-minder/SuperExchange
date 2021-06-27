@@ -9,7 +9,7 @@ export default class LProviders extends Component {
 
   render() {
     return (
-    <div className="LProviders">
+    <div className="rightComponent lProviders">
       <h1> Liquidity Providers </h1>
       {this.state.lProviders.map(function(d, idx) {
           return (<li key={idx}>{d.name}</li>)}

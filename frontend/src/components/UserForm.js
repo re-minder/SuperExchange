@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../App.css';
 
 const userTypes = [
     {
@@ -56,12 +57,12 @@ export default class UserForm extends Component {
 
     render() {
         return (
-        <div className="submit-form">
-            <h1> Add New User </h1>
+        <div className="leftComponent userInput">
+            <h1> Stream Liquidity </h1>
             <form onSubmit={this.handleSubmit}>
                 <label>
                 UserType
-                <div className="select-container">
+                <div>
                     <select name="userType" value={userTypes.userType} onChange={this.handleInputChange}>
                         {userTypes.map((option) => (<option key={option.value} value={option.value}>{option.label}</option>))}
                     </select>
