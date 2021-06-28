@@ -8,18 +8,18 @@ export default class LProviders extends Component {
     this.state = {
       ...this.props,
       rows: [
-          { "id": 1, "Name": "John", "DAI Stream Rate": 0, "ETH Stream Rate": 0, "Fee Earned": 0},
-          { "id": 1, "Name": "John", "DAI Stream Rate": 0, "ETH Stream Rate": 0, "Fee Earned": 0},
+          {"id": 1, "Name": "John", "DAI Stream Rate": 0, "ETH Stream Rate": 0, "DAI Earned": 0, "ETH Earned": 0, "Net Earning ($)": 0},
+          {"id": 1, "Name": "John", "DAI Stream Rate": 0, "ETH Stream Rate": 0, "DAI Earned": 0, "ETH Earned": 0, "Net Earning ($)": 0},
       ],
-      header: ["id", "Name", "DAI Stream Rate", "ETH Stream Rate", "Fee Earned"],
-      headerLength: 5,
+      header: ["id", "Name", "DAI Stream Rate", "ETH Stream Rate", "DAI Earned", "ETH Earned", "Net Earning ($)"],
+      headerLength: 7,
     };
   }
 
   render() {
     return (
     <div className="rightComponent lProviders">
-      <h1 style={{textAlign:'center'}}> Liquidity Providers </h1>
+      <h1> Liquidity Providers </h1>
       <Table rows={this.state.rows} header={this.state.header} headerLength={this.state.headerLength}/>
       {this.state.lProviders.map(function(d, idx) {
           return (<li key={idx}>{d.name}</li>)}

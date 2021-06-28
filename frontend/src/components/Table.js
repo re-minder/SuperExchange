@@ -24,9 +24,9 @@ class Table extends Component {
     }
 
     renderTableHeader() {
-        let header = this.state.header.slice(1,);
+        let header = this.state.header.slice(1, this.state.headerLength);
         return header.map((key, index) => {
-           return <th key={index}>{key.toUpperCase()}</th>
+           return <th key={index}>{key}</th>
         })
      }
   
