@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import UserForm from './components/UserForm';
 import Traders from './components/Traders';
 import LProviders from './components/LProviders';
+import LPool from './components/LPool';
 
 import './App.css';
 
@@ -32,12 +33,9 @@ export default class App extends Component {
 
         <div className="rowComp">
           <UserForm users={this.state.users} onChange={this.handleCallback}/>
-          <div className="rightComponent liquidityPool"> 
-            <h1>Liquidity Pool</h1>
-          </div>
+          <LPool/>
         </div>
         
-        <br/>
         <div className="rowComp" style={{marginTop:"50px"}}>
           <Traders traders={this.state.users.traders} />
           <LProviders lProviders={this.state.users.lProviders}/>
