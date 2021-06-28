@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../App.css';
+import Web3 from 'web3';
 
 const userTypes = [
     {
@@ -20,7 +21,7 @@ export default class UserForm extends Component {
             newUser: {
                 userType: "trader",
                 name: "Your Name",
-                walletAddress: "Your Wallet Addres",
+                walletAddress: "Your Wallet Address",
                 streamRatePerHour: "The rate at which you want to stream",
             }
         };
@@ -37,7 +38,24 @@ export default class UserForm extends Component {
         console.log("HANDLING EVENT : ", event);
         console.log("NEW USERFORM STATE ON SUBMIT: ", this.state);
         this.addUser();
+        this.connectWallet();
     };
+
+    connectWallet = async () => {
+        let web3
+        if (window.ethereum) {
+            web3 = new Web3(window.ethereum);
+            try { 
+               window.ethereum.request({ method: 'eth_requestAccounts' }).then(function() {
+                   console.log("User has allowed account access to DApp...");
+               });
+            } catch(e) {
+               console.error("User has denied account access to DApp...")
+            }
+         } else if(window.web3) {
+             web3 = new Web3(window.web3.currentProvider);
+         }
+    }
 
     addUser = () => {
         if (this.state.newUser.userType==="trader") {
