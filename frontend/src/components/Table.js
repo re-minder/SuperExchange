@@ -13,10 +13,10 @@ class Table extends Component {
             var rowArray = [];
 
             for (var i=1; i<this.state.headerLength; i++) {
-                rowArray.push(<td>{row[this.state.header[i]]}</td>)
+                rowArray.push(<td key={this.state.name+'-col-'+i}>{row[this.state.header[i]]}</td>)
             }
             return (
-                <tr key={row[this.state.header[0]]}>
+                <tr key={this.state.name+'-row-'+index}>
                     {rowArray}
                 </tr>
             )
@@ -26,16 +26,16 @@ class Table extends Component {
     renderTableHeader() {
         let header = this.state.header.slice(1, this.state.headerLength);
         return header.map((key, index) => {
-           return <th key={index}>{key}</th>
+           return <th key={this.state.name+'-'+key+'-'+index}>{key}</th>
         })
      }
   
      render() {
         return (
            <div>
-              <table id="table">
-                 <tbody>
-                    <tr>{this.renderTableHeader()}</tr>
+              <table id="table" key={this.state.name}>
+                 <tbody key={this.state.name+'-table'}>
+                    <tr key={this.state.name+'-header'}>{this.renderTableHeader()}</tr>
                     {this.renderTableData()}
                  </tbody>
               </table>

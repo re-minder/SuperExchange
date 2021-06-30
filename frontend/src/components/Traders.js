@@ -19,10 +19,7 @@ export default class Traders extends Component {
     return (
     <div className="leftComponent traders center">
       <h1> Traders </h1>
-      <Table rows={this.state.rows} header={this.state.header} headerLength={this.state.headerLength}/>
-      {this.state.traders.map(function(d, idx) {
-          return (<li key={idx}>{d.name}</li>)}
-      )}
+      <Table name="traders" rows={this.state.rows} header={this.state.header} headerLength={this.state.headerLength}/>
     </div>
     );
   }

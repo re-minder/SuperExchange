@@ -8,22 +8,23 @@ body {
 .header {
   background-color: #eae2b6;
   padding: 2px;
+  height: 70px;
 }
 
 .logo {
   float: left;
-  width: 2%;
-  height: 2%;
-  margin-top: 15px;
+  width: 70px;
+  height: 70px;
+  /* margin-top: 5px; */
   margin-left: 1%;
 }
 
 .appName {
   font-family: courier new;
-  color: #00a11c;
+  color: rgba(121, 82, 179, 0.85);
   position: relative;
   margin-top: 15px;
-  margin-left: 4%;
+  margin-left: 5%;
 }
 
 .rowComp {
@@ -58,7 +59,7 @@ body {
   height: 28px;
   border: none;
   font-size: 20px;
-  border-bottom: 2.5px solid #00a11c;
+  border-bottom: 2.5px solid rgba(121, 82, 179, 0.75);
   background-color: #eae2b6;
 }
 
@@ -71,7 +72,7 @@ body {
   height: 28px;
   border: none;
   font-size: 20px;
-  border-bottom: 2.5px solid #00a11c;
+  border-bottom: 2.5px solid rgba(121, 82, 179, 0.75);
   background-color: #eae2b6;
 }
 
@@ -79,14 +80,16 @@ body {
   font-family: courier new;
   margin-top: 2%;
   margin-left: 15%;
-  width: 25%;
-  height: 30px;
-  font-size: 20px;
-  background-color: #00a11c;
+  width: 30%;
+  height: 35px;
+  font-size: 25px;
+  background-color: #7952b3;
   opacity: 0.75;
+  color: #e3cdc1;
 }
 
 .submitButton:hover {
+  /* background-color: #a239ea; */
   opacity: 1;
 }
 
@@ -117,8 +120,8 @@ body {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #00a11c;
-  opacity: 0.95;
+  background-color: #7952b3;
+  opacity: 0.85;
   /* color: #f2edd7; */
   color: #e3cdc1;
 }
