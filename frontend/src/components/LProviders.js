@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Table from "./Table";
+import Table from './Table';
 
 export default class LProviders extends Component {
 
@@ -8,19 +8,19 @@ export default class LProviders extends Component {
     this.state = {
       ...this.props,
       rows: [
-          {"id": 1, "Name": "John", "DAI Stream Rate": 0, "ETH Stream Rate": 0, "DAI Earned": 0, "ETH Earned": 0, "Net Earning ($)": 0},
-          {"id": 2, "Name": "John", "DAI Stream Rate": 0, "ETH Stream Rate": 0, "DAI Earned": 0, "ETH Earned": 0, "Net Earning ($)": 0},
+          {'id': 1, 'Name': 'John', 'DAI Stream Rate': 0, 'ETH Stream Rate': 0, 'DAI Earned': 0, 'ETH Earned': 0, 'Net Earning ($)': 0},
+          {'id': 2, 'Name': 'John', 'DAI Stream Rate': 0, 'ETH Stream Rate': 0, 'DAI Earned': 0, 'ETH Earned': 0, 'Net Earning ($)': 0},
       ],
-      header: ["id", "Name", "DAI Stream Rate", "ETH Stream Rate", "DAI Earned", "ETH Earned", "Net Earning ($)"],
+      header: ['id', 'Name', 'DAI Stream Rate', 'ETH Stream Rate', 'DAI Earned', 'ETH Earned', 'Net Earning ($)'],
       headerLength: 7,
     };
   }
 
   render() {
     return (
-    <div className="rightComponent lProviders">
+    <div className='rightComponent lProviders'>
       <h1> Liquidity Providers </h1>
-      <Table name="testing" rows={this.state.rows} header={this.state.header} headerLength={this.state.headerLength}/>
+      <Table name='testing' rows={this.state.rows} header={this.state.header} headerLength={this.state.headerLength}/>
     </div>
     );
   }

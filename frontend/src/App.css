@@ -9,22 +9,47 @@ body {
   background-color: #eae2b6;
   padding: 2px;
   height: 70px;
+  display: flex;
+  flex-direction: row;
 }
 
 .logo {
   float: left;
   width: 70px;
   height: 70px;
-  /* margin-top: 5px; */
   margin-left: 1%;
 }
 
 .appName {
   font-family: courier new;
   color: rgba(121, 82, 179, 0.85);
-  position: relative;
-  margin-top: 15px;
-  margin-left: 5%;
+  margin-top: 1%;
+}
+
+.navigationBar {
+  font-family: courier new;
+  align: right;
+  margin-right: 5%;
+}
+
+.navigationBar ul {
+  font-family: courier new;
+  display: flex;
+  list-style: none;
+  padding: 1%;
+}
+
+.navigationBar ul li {
+  padding: 5%;
+}
+
+.logoHomePage {
+  width: 350px;
+  height: 350px;
+  margin-top: 3%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .rowComp {
