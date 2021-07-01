@@ -33,6 +33,7 @@ export default class UserForm extends Component {
     }
 
     addUser = (newUser) => {
+        this.connectWallet();
         if (newUser.userType==='trader') {
             var newTraders = this.state.users.traders
             newTraders.push(newUser)

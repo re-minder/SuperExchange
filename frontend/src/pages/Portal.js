@@ -7,15 +7,20 @@ import LPool from '../components/LPool';
 import '../App.css';
 
 export default class Portal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  constructor() {
+    super();
+    this.state = JSON.parse(window.localStorage.getItem('state')) || {
       users: {
         traders: [],
         lProviders: [],
-      },
-    };
+      }
+    }
     this.handleCallback = this.handleCallback.bind(this);
+  }
+
+  setState(state) {
+    window.localStorage.setItem('state', JSON.stringify(state));
+    super.setState(state);
   }
 
   handleCallback(newUsers) {

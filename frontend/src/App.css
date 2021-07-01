@@ -34,14 +34,12 @@ body {
 
 .homeNavigationBar {
   font-family: courier new;
-  /* float: right; */
   margin-left: auto;
   margin-right: 10%;
   font-size: 27px;
 }
 
 .homeNavigationBar ul {
-  font-family: courier new;
   display: flex;
   list-style: none;
 }
@@ -51,11 +49,13 @@ body {
 }
 
 .homeNavigationBar ul > li > a {
+  color: rgba(121, 82, 179, 0.85);
   text-decoration: none;
 }
 
 .homeNavigationBar ul > li > a:hover {
   font-weight: bold;
+  color: rgba(121, 82, 179, 1);
 }
 
 .currentPage {
