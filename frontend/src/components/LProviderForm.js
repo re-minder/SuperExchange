@@ -32,7 +32,6 @@ export default class LProviderForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <br/>
                 <input className='inputText' style={{textAlign:'center'}} type='text' name='name' placeholder={this.state.newUser.name} onChange={this.handleInputChange} />
                 <input className='inputText' style={{textAlign:'center'}} type='text' name='DAIStreamRatePerSecond' placeholder={this.state.newUser.DAIStreamRatePerSecond} onChange={this.handleInputChange} />
                 <input className='inputText' style={{textAlign:'center'}} type='text' name='ETHStreamRatePerSecond' placeholder={this.state.newUser.ETHStreamRatePerSecond} onChange={this.handleInputChange} />
