@@ -19,7 +19,7 @@ export default class Portal extends Component {
   }
 
   handleCallback(newUsers) {
-    this.setState({ users: newUsers });
+    this.setState({users: newUsers});
     console.log('CALLBACK in App.js', this.state.users);
   }
 

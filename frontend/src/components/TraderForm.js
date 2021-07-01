@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
-import { Tab, Tabs } from 'react-bootstrap';
-import Web3 from 'web3';
-
-import TraderForm from './TraderForm';
-import LProviderForm from './LProviderForm';
-
 import '../App.css';
+import Web3 from 'web3';
 
 const userTypes = [
     {
@@ -18,18 +13,23 @@ const userTypes = [
     }
 ];
 
-export default class UserForm extends Component {
+export default class TraderForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
             ...this.props,
-            tab: 'trader',
+            newUser: {
+                userType: 'trader',
+                name: 'Your Name',
+                walletAddress: 'Your Wallet Address',
+                streamRatePerHour: 'The rate at which you want to stream',
+            }
         };
     }
 
     handleInputChange = event => {
         const { name, value } = event.target;
-        this.setState({[name]: value});
+        this.setState({...this.setState, newUser: {...this.state.newUser, [name]: value}});
         console.log('NEW USERFORM STATE ON CHANGE: ', this.state);
     };
 
@@ -75,19 +75,13 @@ export default class UserForm extends Component {
 
     render() {
         return (
-        <div className='leftComponent userInput'>
-            <h1> Stream Liquidity </h1>
-            <div className='userFormBar'>
-                <Tabs defaultActiveKey='trader' transition={false} id='uncontrolled-tab-example' onSelect={(index, label) => console.log(index + ' selected')}>
-                    <Tab eventKey='trader' title='Trader' unmountOnExit={true} className='userFormBar'>
-                        <TraderForm />
-                    </Tab>
-                    <Tab eventKey='lProvider' title='Liquidity Provider'  unmountOnExit={true}>
-                        <LProviderForm />
-                    </Tab>
-                </Tabs>
-            </div>
-        </div>
+            <h1>This is TraderForm</h1>
+            // <form onSubmit={this.handleSubmit}>
+            //     <input className='inputText' type='text' name='name' placeholder={this.state.newUser.name} onChange={this.handleInputChange} />
+            //     <input className='inputText' type='text' name='walletAddress' placeholder={this.state.newUser.walletAddress} onChange={this.handleInputChange} />
+            //     <input className='inputText' type='text' name='streamRatePerHour' placeholder={this.state.newUser.streamRatePerHour} onChange={this.handleInputChange} />
+            //     <input className='submitButton' type='submit' value='Start Streaming' />
+            // </form>
         );
     }
 }

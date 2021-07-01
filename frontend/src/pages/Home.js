@@ -13,7 +13,8 @@ export default class Home extends Component {
             alt='Logo'
             src={SuperExchange_Logo}
         />
-        <h1 className='appName' style={{textAlign:'center'}}>Streaming Liquidity</h1>
+        <br/>
+        <h1 className='appLine' style={{textAlign:'center'}}>Streaming Liquidity</h1>
       </div>
     )
   }
