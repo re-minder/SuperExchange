@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import SuperExchange_Logo from '../assets/SuperExchange_Logo_Circle.gif';
+import '../App.css';
 
 export default class Navigation extends Component {
     render() {
@@ -13,10 +14,10 @@ export default class Navigation extends Component {
                 src={SuperExchange_Logo}
                 ></img>
                 <h1 className='appName'>SuperExchange</h1>         
-                <nav className="navigationBar">
+                <nav className='homeNavigationBar'>
                     <ul>
-                        <li><NavLink to='/'>Home</NavLink></li>
-                        <li><NavLink to='/portal'>Portal</NavLink></li>
+                        <li><NavLink exact activeClassName='currentPage' to='/'>Home</NavLink></li>
+                        <li><NavLink exact activeClassName='currentPage' to='/portal'>Portal</NavLink></li>
                     </ul>
                 </nav>
             </div>
