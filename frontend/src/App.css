@@ -94,11 +94,18 @@ body {
   width: 48%;
 }
 
+.nav-tabs {
+  display: flex;
+  margin-right: 20%;
+  margin-left: 0%;
+}
+
 .nav-link {
+  margin: 0 auto;
   text-decoration: none;
   color: rgba(121, 82, 179, 0.85);
-  margin-left: 8%;
-  margin-right: 8%;
+  /* margin-left: 8%;
+  margin-right: 8%; */
   font-size: 30px;
 }
 
@@ -113,31 +120,35 @@ body {
 
 .inputText {
   font-family: courier new;
-  display: block;
   margin-top: 3%;
   margin-bottom: 2%;
   width: 55%;
-  height: 28px;
+  height: 30px;
   border: none;
   font-size: 20px;
   border-bottom: 2.5px solid rgba(121, 82, 179, 0.75);
   background-color: #eae2b6;
+  display: flex;
+  margin-right: auto;
+  margin-left: 12%;
 }
 
 .submitButton {
   font-family: courier new;
-  margin-top: 2%;
-  margin-left: 15%;
-  width: 30%;
+  margin-top: 3%;
+  width: 28%;
   height: 35px;
   font-size: 25px;
   background-color: rgba(121, 82, 179, 0.75);
   color: #e3cdc1;
+  display: flex;
+  margin-right: auto;
+  margin-left: 25%;
 }
 
 .submitButton:hover {
   /* background-color: #a239ea; */
-  opacity: 1;
+  background-color: rgba(121, 82, 179, 1);
 }
 
 #table {
@@ -170,16 +181,4 @@ body {
   background-color: rgba(121, 82, 179, 0.85);
   /* color: #f2edd7; */
   color: #e3cdc1;
-}
-
-.userInput {
-}
-
-.lPool {
-}
-
-.traders {
-}
-
-.lProviders {
 }

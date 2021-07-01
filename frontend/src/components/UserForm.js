@@ -7,86 +7,65 @@ import LProviderForm from './LProviderForm';
 
 import '../App.css';
 
-const userTypes = [
-    {
-        label: 'Trader',
-        value: 'trader',
-    },
-    {
-        label: 'Liquidity Provider',
-        value: 'lProvider',
-    }
-];
-
 export default class UserForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
             ...this.props,
-            tab: 'trader',
         };
+        this.handleCallback = this.handleCallback.bind(this);
     }
-
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({[name]: value});
-        console.log('NEW USERFORM STATE ON CHANGE: ', this.state);
-    };
-
-    handleSubmit = event => {
-        event.preventDefault();
-        console.log('HANDLING EVENT : ', event);
-        console.log('NEW USERFORM STATE ON SUBMIT: ', this.state);
-        this.addUser();
-        this.connectWallet();
-    };
 
     connectWallet = async () => {
         let web3
         if (window.ethereum) {
-            web3 = new Web3(window.ethereum);
+            web3 = new Web3(window.ethereum)
             try { 
                window.ethereum.request({ method: 'eth_requestAccounts' }).then(function() {
-                   console.log('User has allowed account access to DApp...');
+                   console.log('User has allowed account access to DApp...')
                });
             } catch(e) {
                console.error('User has denied account access to DApp...')
             }
          } else if(window.web3) {
-             web3 = new Web3(window.web3.currentProvider);
+             web3 = new Web3(window.web3.currentProvider)
          }
     }
 
-    addUser = () => {
-        if (this.state.newUser.userType==='trader') {
-            var newTraders = this.state.users.traders;
-            newTraders.push(this.state.newUser)
+    addUser = (newUser) => {
+        if (newUser.userType==='trader') {
+            var newTraders = this.state.users.traders
+            newTraders.push(newUser)
             this.setState({...this.state, users: {...this.state.users, traders: newTraders}})
-            this.props.onChange(this.props.users);
             console.log('TRADERS : ', this.props.users.traders);
-        } else if (this.state.newUser.userType==='lProvider') {
+        } else if (newUser.userType==='lProvider') {
             var newLProviders = this.state.users.lProviders;
-            newLProviders.push(this.state.newUser)
+            newLProviders.push(newUser)
             this.setState({...this.state, users: {...this.state.users, lProviders: newLProviders}})
             this.props.onChange(this.props.users);
             console.log('LIQUIDITY PROVIDERS : ', this.props.users.lProviders);
         }
     }
 
+    handleCallback(newUser) {
+        console.log('CALLBACK in UserForm.js', this.state.users);
+        this.setState({newUser: newUser});
+        this.addUser(newUser);
+        this.props.onChange(this.state.users);
+    }
+
     render() {
         return (
         <div className='leftComponent userInput'>
             <h1> Stream Liquidity </h1>
-            <div className='userFormBar'>
-                <Tabs defaultActiveKey='trader' transition={false} id='uncontrolled-tab-example' onSelect={(index, label) => console.log(index + ' selected')}>
-                    <Tab eventKey='trader' title='Trader' unmountOnExit={true} className='userFormBar'>
-                        <TraderForm />
-                    </Tab>
-                    <Tab eventKey='lProvider' title='Liquidity Provider'  unmountOnExit={true}>
-                        <LProviderForm />
-                    </Tab>
-                </Tabs>
-            </div>
+            <Tabs defaultActiveKey='trader' transition={false} id='uncontrolled-tab-example' onSelect={(index, label) => console.log(index + ' selected')}>
+                <Tab eventKey='trader' title='Trader' unmountOnExit={true}>
+                    <TraderForm onSubmit={this.handleCallback}/>
+                </Tab>
+                <Tab eventKey='lProvider' title='Liquidity Provider' unmountOnExit={true}>
+                    <LProviderForm onSubmit={this.handleCallback}/>
+                </Tab>
+            </Tabs>
         </div>
         );
     }

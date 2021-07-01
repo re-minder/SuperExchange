@@ -20,7 +20,7 @@ export default class Portal extends Component {
 
   handleCallback(newUsers) {
     this.setState({users: newUsers});
-    console.log('CALLBACK in App.js', this.state.users);
+    console.log('CALLBACK in Portal.js', this.state.users);
   }
 
   render() {
@@ -30,8 +30,8 @@ export default class Portal extends Component {
           <UserForm users={this.state.users} onChange={this.handleCallback} />
           <LPool />
         </div>
-
-        <div className='rowComp' style={{ marginTop: '50px' }}>
+        <br/>
+        <div className='rowComp'>
           <Traders traders={this.state.users.traders} />
           <LProviders lProviders={this.state.users.lProviders} />
         </div>
