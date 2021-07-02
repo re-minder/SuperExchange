@@ -59,7 +59,7 @@ export default class UserForm extends Component {
         return (
         <div className='leftComponent userInput'>
             <h1> Stream Liquidity </h1>
-            <Tabs defaultActiveKey='trader' transition={false} id='uncontrolled-tab-example' onSelect={(index, label) => console.log(index + ' selected')}>
+            <Tabs defaultActiveKey='trader' transition={false} id='uncontrolled-tab-example' onSelect={(key) => console.log(`HANDLING TAB EVENT : ${key} selected`)}>
                 <Tab eventKey='trader' title='Trader' unmountOnExit={true}>
                     <TraderForm onSubmit={this.handleCallback}/>
                 </Tab>
