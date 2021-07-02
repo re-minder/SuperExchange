@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import UserForm from '../components/UserForm';
 import Traders from '../components/Traders';
 import LProviders from '../components/LProviders';
@@ -13,10 +14,24 @@ export default class Portal extends Component {
       users: {
         traders: [],
         lProviders: [],
-      },
-      // sf: undefined,
-    }
+      }
+    };
+    console.log('this.state in CONSTRUCTOR in Portal.js : ', this.state);
     this.handleCallback = this.handleCallback.bind(this);
+  }
+
+  componentDidMount() {
+    try {
+      this.initializeSuperFluid().then(sf => {
+        console.log('SUPERFLUID INITIALIZED sf ', sf);
+        var Flatted = require('flatted');
+        this.setState({...this.state, sf: Flatted.stringify(sf)});
+        // console.log('SUPERFLUID INITIALIZED this.state.sf ', this.state.sf);
+      });
+    } catch (error) {
+      alert('Unable to initialize SUPERFLUID');
+      console.error(error);
+    }
   }
 
   setState(state) {
@@ -24,21 +39,29 @@ export default class Portal extends Component {
     super.setState(state);
   }
 
-  // async initializeSuperFluid() {
-  //   const SuperfluidSDK = require("@superfluid-finance/js-sdk");
-  //   const Web3 = require("web3");
+  async initializeSuperFluid() {
+    console.log('INITIALIZING SUPERFLUID in Portal.js');
+    const SuperfluidSDK = require('@superfluid-finance/js-sdk');
+    const Web3 = require('web3');
 
-  //   const sf = new SuperfluidSDK.Framework({
-  //       web3: new Web3(window.ethereum),
-  //   });
-  //   await sf.initialize();
-  //   this.setState({sf});
-  //   console.log("SuperFluid Initialized ", this.state.sf);
-  // }
+    const sf = new SuperfluidSDK.Framework({
+        web3: new Web3(window.ethereum),
+    });
+    await sf.initialize();
+    return sf;
+  }
 
   handleCallback(users) {
-    this.setState({users});
+    this.setState({...this.state, users: users});
     console.log('CALLBACK in Portal.js', this.state.users);
+
+    var Flatted = require('flatted');
+    const sf = Flatted.parse(this.state.sf);
+    console.log('SUPERFLUID UNFLATTENED sf ', sf);
+    // // const user = sf.user({
+    // //   address: walletAddress[0],
+    // //   token: '0xF2d68898557cCb2Cf4C10c3Ef2B034b2a69DAD00'
+    // // });
   }
 
   render() {

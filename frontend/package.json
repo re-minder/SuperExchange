@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@truffle/contract": "^4.3.23",
     "bootstrap": "^4.6.0",
+    "flatted": "^3.2.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
