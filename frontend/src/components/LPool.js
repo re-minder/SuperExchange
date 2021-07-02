@@ -28,9 +28,9 @@ export default class LPool extends Component {
   render() {
     return (
     <div className='rightComponent lPool'>
-      <h1> Liquidity Pool </h1>
+      <h1 className='sectionTitle'> Liquidity Pool </h1>
       <Table name='lPool' rows={this.state.rows} header={this.state.header} headerLength={this.state.headerLength}/>
-      <h3> Net Fee Collected : {this.state.feeDAI} DAI + {this.state.feeETH} ETH</h3>
+      <h2 className='sectionTitle'> Net Fee Collected : {this.state.feeDAI} DAI + {this.state.feeETH} ETH</h2>
     </div>
     );
   }

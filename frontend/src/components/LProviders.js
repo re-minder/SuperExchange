@@ -19,10 +19,10 @@ export default class LProviders extends Component {
   render() {
     return (
     <div className='rightComponent lProviders'>
-      <h1> Liquidity Providers </h1>
+      <h1 className='sectionTitle'> Liquidity Providers </h1>
       <Table name='lProviders' rows={this.state.rows} header={this.state.header} headerLength={this.state.headerLength}/>
       {this.state.lProviders.map(function(d, idx) {
-          return (<li key={idx}>{d.name}</li>)}
+          return (<li key={idx}>{d.name}, {d.walletAddress}</li>)}
       )}
     </div>
     );

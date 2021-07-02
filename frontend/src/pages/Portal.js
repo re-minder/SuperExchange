@@ -13,7 +13,8 @@ export default class Portal extends Component {
       users: {
         traders: [],
         lProviders: [],
-      }
+      },
+      // sf: undefined,
     }
     this.handleCallback = this.handleCallback.bind(this);
   }
@@ -23,8 +24,20 @@ export default class Portal extends Component {
     super.setState(state);
   }
 
-  handleCallback(newUsers) {
-    this.setState({users: newUsers});
+  // async initializeSuperFluid() {
+  //   const SuperfluidSDK = require("@superfluid-finance/js-sdk");
+  //   const Web3 = require("web3");
+
+  //   const sf = new SuperfluidSDK.Framework({
+  //       web3: new Web3(window.ethereum),
+  //   });
+  //   await sf.initialize();
+  //   this.setState({sf});
+  //   console.log("SuperFluid Initialized ", this.state.sf);
+  // }
+
+  handleCallback(users) {
+    this.setState({users});
     console.log('CALLBACK in Portal.js', this.state.users);
   }
 

@@ -24,7 +24,6 @@ export default class LProviderForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        console.log('HANDLING EVENT : ', event);
         console.log('NEW USERFORM STATE ON SUBMIT: ', this.state);
         this.props.onSubmit(this.state.newUser);
     };
