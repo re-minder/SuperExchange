@@ -28,7 +28,7 @@ body {
 
 .appLine {
   font-family: courier new;
-  color: rgba(121, 82, 179, 0.85);
+  color: #5d534a;
   margin-top: 1%;
 }
 
@@ -49,13 +49,13 @@ body {
 }
 
 .homeNavigationBar ul > li > a {
-  color: rgba(121, 82, 179, 0.85);
+  color: rgba(93, 83, 74, 0.85);
   text-decoration: none;
 }
 
 .homeNavigationBar ul > li > a:hover {
   font-weight: bold;
-  color: rgba(121, 82, 179, 1);
+  /* color: rgba(121, 82, 179, 1); */
 }
 
 .currentPage {
@@ -74,7 +74,6 @@ body {
 .rowComp {
   width: 100%;
   display: table;
-  /* flex-wrap: wrap; */
 }
 
 .leftComponent {
@@ -94,6 +93,10 @@ body {
   width: 48%;
 }
 
+.sectionTitle {
+  color: #5d534a;
+}
+
 .nav-tabs {
   display: flex;
   margin-right: 20%;
@@ -103,15 +106,12 @@ body {
 .nav-link {
   margin: 0 auto;
   text-decoration: none;
-  color: rgba(121, 82, 179, 0.85);
-  /* margin-left: 8%;
-  margin-right: 8%; */
+  color: rgba(93, 83, 74, 0.85);
   font-size: 30px;
 }
 
 .nav-link:hover {
   font-weight: bold;
-  color: rgba(121, 82, 179, 1);
 }
 
 .nav-link.active {
@@ -139,7 +139,7 @@ body {
   width: 28%;
   height: 35px;
   font-size: 25px;
-  background-color: rgba(121, 82, 179, 0.75);
+  background-color: rgba(121, 82, 179, 0.8);
   color: #e3cdc1;
   display: flex;
   margin-right: auto;
@@ -157,13 +157,14 @@ body {
   /* font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; */
   border-collapse: collapse;
   border: 3px solid #a0937d;
-  width: 80%;
+  width: 85%;
 }
 
 #table td,
 #table th {
   border: 1px solid #a0937d;
   padding: 8px;
+  color: #5d534a;
 }
 
 /* #table tr:nth-child(even) {
@@ -178,7 +179,7 @@ body {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: rgba(121, 82, 179, 0.85);
+  background-color: rgba(121, 82, 179, 0.8);
   /* color: #f2edd7; */
   color: #e3cdc1;
 }
