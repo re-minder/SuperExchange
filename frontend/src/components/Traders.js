@@ -7,19 +7,23 @@ export default class Traders extends Component {
     this.state = {
       ...this.props,
       rows: [
-          {'id': 1, 'Name': 'John', 'Token Swapped': 'DAI -> ETH', 'Streaming Rate': 0, 'Tokens Paid' : 'x ETH', 'Fee Paid ($)': 0},
-          {'id': 2, 'Name': 'Jane', 'Token Swapped': 'ETH -> DAI', 'Streaming Rate': 0, 'Tokens Paid' : 'y DAI', 'Fee Paid ($)': 0},
+          {'id': 1, 'Name': 'John', 'Streaming Rate': 0, 'Tokens Paid' : 'x ETH', 'Fee Paid ($)': 0, 'Tokens Retrieved': 'y DAI'},
+          {'id': 2, 'Name': 'Jane', 'Streaming Rate': 0, 'Tokens Paid' : 'y DAI', 'Fee Paid ($)': 0, 'Tokens Retrieved': 'x ETH'},
       ],
-      header: ['id', 'Name', 'Token Swapped', 'Streaming Rate', 'Tokens Paid', 'Fee Paid ($)'],
+      header: ['id', 'Name', 'Streaming Rate', 'Tokens Paid', 'Fee Paid ($)', 'Tokens Retrieved'],
       headerLength: 6,
     };
   }
 
   render() {
     return (
-    <div className='leftComponent traders center'>
-      <h1> Traders </h1>
+    <div className='leftComponent traders'>
+      <h1 className='sectionTitle'> Traders </h1>
       <Table name='traders' rows={this.state.rows} header={this.state.header} headerLength={this.state.headerLength}/>
+      {this.state.traders.map(function(d, idx) {
+          console.log('Trader row', d);
+          return (<li key={idx}>{d.name}, {d.walletAddress}</li>)}
+      )}
     </div>
     );
   }
