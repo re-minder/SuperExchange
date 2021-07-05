@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Table extends Component {
+export default class Table extends Component {
     constructor(props) {
         super(props) //since we are extending class Table so we have to use super in order to override Component class constructor
         this.state = {
@@ -44,4 +44,3 @@ class Table extends Component {
      }
 }
 
-export default Table
