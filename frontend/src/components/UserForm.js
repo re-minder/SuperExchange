@@ -28,8 +28,8 @@ export default class UserForm extends Component {
                     ]
                 }).then((accounts) => {
                     console.log('Connected Wallets :', accounts);
-                    this.setState({...this.state, newUser: {...this.state.newUser, walletAddress: accounts[0]}});
-                    console.log('New User after connecting wallet : ', this.state.newUser);
+                    this.setState({...this.state, users: {...this.state.users, newUser: {...newUser, walletAddress: accounts[0]}}});
+                    console.log('New User after connecting wallet : ', this.state.users.newUser);
                     console.log('User has allowed account access to dApp...');
                 });
                 window.web3 = new Web3(window.ethereum);
@@ -43,27 +43,60 @@ export default class UserForm extends Component {
         return false;
     }
 
+    async createNewTrader(newTrader, traderId) {
+        var row = {
+          'id': traderId, 
+          'Name': newTrader.name, 
+          'Streaming Rate': newTrader.streamRatePerHour, 
+          'Tokens Paid' : newTrader.tokenSwap==='DAI → ETH' ? '0 DAI' : '0 ETH', 
+          'Fee Paid ($)': 0, 
+          'Tokens Retrieved': newTrader.tokenSwap==='DAI → ETH' ? '0 ETH' : '0 DAI', 
+        };
+        await this.state.users.traders.push(row);
+        console.log('Trader row pushed : ', this.state.traders);
+    }
+
+    async createNewLProvider(newLProvider, lProviderId) {
+        var row = {
+          'id': lProviderId,
+          'Name': newLProvider.name,
+          'DAI Stream Rate': newLProvider.DAIStreamRatePerSecond,
+          'ETH Stream Rate': newLProvider.ETHStreamRatePerSecond,
+          'DAI Earned': 0,
+          'ETH Earned': 0,
+          'Net Earning ($)': 0,
+        };
+        await this.state.rows.push(row);
+        console.log('LProvider row pushed : ', this.state.rows);
+    }
+
     addUser = (newUser) => {
         if (newUser.userType==='trader') {
-            var newTraders = this.state.users.traders;
-            newTraders.push(newUser);
-            this.setState({...this.state, users: {...this.state.users, traders: newTraders}});
-            console.log('TRADERS : ', this.props.users.traders);
-        } else if (newUser.userType==='lProvider') {
-            var newLProviders = this.state.users.lProviders;
-            newLProviders.push(newUser);
-            this.setState({...this.state, users: {...this.state.users, lProviders: newLProviders}});
-            this.props.onChange(this.props.users);
-            console.log('LIQUIDITY PROVIDERS : ', this.props.users.lProviders);
+            this.createNewTrader(newUser, this.state.users.traderCount+1);
+            this.setState({...this.state, 
+                users: {...this.state.users,
+                    traderCount: this.state.users.traderCount+1,
+                }
+            });
+            console.log('TRADERS : ', this.state.users.traderCount, this.state.users.traders);
+        }
+        else if (newUser.userType==='lProvider') {
+            this.createNewLProvider(newUser, this.state.users.lProviderCount+1);
+            this.setState({...this.state, 
+                users: {...this.state.users,
+                    lProviderCount: this.state.users.lProviderCount+1,
+                }
+            });
+            console.log('LIQUIDITY PROVIDERS : ', this.state.users.lProviderCount, this.state.users.lProviders);
         }
     }
 
     handleCallback(newUser) {
-        this.setState({newUser});
+        this.setState({...this.state, users: {...this.state.users, newUser: newUser}});
         console.log('CALLBACK in UserForm.js', this.state);
         this.connectWallet(newUser).then((res) => {
             if(res){
-                this.addUser(this.state.newUser);
+                this.addUser(this.state.users.newUser);
                 this.props.onChange(this.state.users);
             }
         });
